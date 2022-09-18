@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <title>New Post</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="jquery-3.6.0.min.js"></script>
+    <style>
+      .title-input:active {
+        border-bottom: 2px solid red;
+      }
+      .nav-items {
+        margin-left: 20px;
+        width: 100%;
+        height: 60px;
+      }
+      .icon {
+        height: 20px;
+        width: 20px;
+        margin: 20px 5px;
+        display: inline-block;
+      }
+      .publish {
+        width: 90px;
+        position: relative;
+        top: 10px;
+        right: 50px;
+        float: right;
+        border: 1px solid black;
+        border-radius: 10px;
+        background-color: rgba(220, 20, 60, 0.654);
+        color: white;
+      }
+      .publish:hover {
+        background-color: rgb(220, 20, 60);
+        color: black;
+      }
+
+      .image-box{
+       height: 300px;
+       width: 300px;
+       border: 3px solid black;
+       margin-left: 30%;
+       margin-bottom: 30px;
+      }
+
+   
+
+    </style>
+  </head>
+  <body>
+    <input
+      class="title-input"
+      type="text"
+      placeholder="Title"
+      style="
+        border: none;
+        width: 100%;
+        font-size: 25px;
+        padding: 10px 0px 0px 10px;
+      "
+    />
+    <section class="nav-items">
+      <a href="#"
+        ><abbr title="Bold"
+          ><img src="./img/bold.png" alt="Bold" id="bold" class="icon" /></abbr
+      ></a>
+      <a href="#"
+        ><abbr title="Italics"
+          ><img src="./img/italics.png" alt="Italics" id="italic" class="icon" /></abbr
+      ></a>
+      <a href="#"
+        ><abbr title="Insert Image"
+          ><img
+            src="./img/insert.png"
+            alt="Italics"
+            class="icon"
+            id="insert"
+            style="
+              height: 30px;
+              width: 30px;
+              position: relative;
+              bottom: -5px;
+            " accept="image/png , image/jpg, image/jpeg, image/webp"/></abbr
+      ></a>
+      <button class="icon publish" id="publish" role="button">
+        <span class="text">Publish</span>
+      </button>
+      <input type="file" class="image-box" style="display: none">
+    </input>
+    <div class="image"></div>
+  
+    
+      <textarea type="textArea" name="" id="content" cols="200" rows="30">
+       
+      </textarea>
+
+    </section>
+
+  <script>
+
+    
+
+
+    $(".publish").click(()=>{
+      console.log("this is working");
+      value = $(".title-input").val();
+
+textArea = $("#content").val();
+      console.log(value);
+      console.log(textArea);
+      
+
+
+    
+    })
+
+
+    $("#insert").click(()=>{
+           console.log("upload image");
+           var image_input = $(".image-box").show();
+          
+          
+    })
+ 
+
+    // $(".image-box").addEventListener("change", ()=>{
+    //   var uploaded_image = "";
+    //   const reader = new FileReader();
+    //   reader.addEventListener("load", ()=>{
+    //     uploaded_image = reader.result;
+    //     $(".image-box").style.backgroundImage = uploaded_image;
+    //   });
+    //   reader.readAsDataURL(this.files[0]);
+    // })
+    $("#italic").click(()=>{
+          console.log("italic");
+          italic = $("#content").val();
+          var results = console.log(`<i>${italic}</i>`);
+           $("#content").replaceWith(results);
+    
+});
+  
+    $("#bold").click(()=>{
+
+           console.log("bold");
+           bold = $("#content").val().bold();
+          //  var result = bold.bold();
+           $("#content").replaceWith(bold);
+          
+           console.log(result);
+    })
+
+    $(".image-bo").click(()=>{
+      $(".image-box").show();
+    })
+
+   
+
+
+  </script>
+  </body>
+</html>
